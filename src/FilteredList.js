@@ -47,7 +47,10 @@ export default function FilteredList(props) {
       });
     }
     setFilteredData(newList);
+    console.log(newList);
     props.setData(newList);
+
+    console.log(props.myData, "mydata");
   }, [sortState, filterState, typeFilterState, props.myFavorites]);
 
   const handleTheSort = (num) => {
