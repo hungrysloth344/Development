@@ -2,7 +2,7 @@
 
 ### Link to Deployed Website
 
-If you used the stencil code, this is `https://hungrysloth344.github.io/Development`
+(`https://hungrysloth344.github.io/Development`)
 
 ### Goal and Value of the Application
 

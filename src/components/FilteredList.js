@@ -5,6 +5,7 @@ export default function FilteredList(props) {
   const [sortState, setSortState] = useState(0);
   const [activeTimeFilterState, setActiveTimeFilterState] = useState(0);
   const [animalTypeFilterState, setAnimalTypeFilterState] = useState(0);
+  const [checked, setChecked] = React.useState(true);
 
   /** Does the actual sorting and filtering */
   useEffect(() => {
@@ -65,33 +66,39 @@ export default function FilteredList(props) {
     <div className="FilterContainer">
       <h2>Sort By Name</h2>
 
-      <div>
+      <div className="radio">
         <input type="radio" name="sorting" onChange={() => handleTheSort(1)} />
         <label>Ascending (A-Z)</label>
       </div>
 
-      <div>
+      <div className="radio">
         <input type="radio" name="sorting" onChange={() => handleTheSort(2)} />
         <label>Descending (Z-A)</label>
       </div>
 
-      <div>
-        <input type="radio" name="sorting" onChange={() => handleTheSort(3)} />
+      <div className="radio">
+        <input
+          type="radio"
+          name="sorting"
+          defaultChecked={checked}
+          onChange={() => handleTheSort(3)}
+        />
         <label>None</label>
       </div>
 
       <h2>Filter By</h2>
       <h3> Active Time</h3>
-      <div>
+      <div className="radio">
         <input
           type="radio"
           name="activeTimeFilter"
+          defaultChecked={checked}
           onChange={() => handleTheActiveTimeFilter(0)}
         />
         <label>All</label>
       </div>
 
-      <div>
+      <div className="radio">
         <input
           type="radio"
           name="activeTimeFilter"
@@ -100,7 +107,7 @@ export default function FilteredList(props) {
         <label>Diurnal</label>
       </div>
 
-      <div>
+      <div className="radio">
         <input
           type="radio"
           name="activeTimeFilter"
@@ -110,16 +117,17 @@ export default function FilteredList(props) {
       </div>
 
       <h3> Animal Type</h3>
-      <div>
+      <div className="radio">
         <input
           type="radio"
           name="animalTypeFilter"
+          defaultChecked={checked}
           onChange={() => handleTheAnimalTypeFilter(0)}
         />
         <label>All</label>
       </div>
 
-      <div>
+      <div className="radio">
         <input
           type="radio"
           name="animalTypeFilter"
@@ -128,7 +136,7 @@ export default function FilteredList(props) {
         <label>Amphibian</label>
       </div>
 
-      <div>
+      <div className="radio">
         <input
           type="radio"
           name="animalTypeFilter"
@@ -137,7 +145,7 @@ export default function FilteredList(props) {
         <label>Bird</label>
       </div>
 
-      <div>
+      <div className="radio">
         <input
           type="radio"
           name="animalTypeFilter"
@@ -146,7 +154,7 @@ export default function FilteredList(props) {
         <label>Mammal</label>
       </div>
 
-      <div>
+      <div className="radio">
         <input
           type="radio"
           name="animalTypeFilter"
