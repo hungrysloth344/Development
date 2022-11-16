@@ -45,7 +45,7 @@ function App() {
           <h3>Favorites Max Length: {Math.round(total * 100) / 100}</h3>
           {/** Maps the items in myFavorites to display each animal added to favorites and passes in associated props */}
           {myFavorites.length === 0 ? (
-            <h3>No favorites!</h3>
+            <h3>No favorites added yet!</h3>
           ) : (
             myFavorites.map((item, index) => {
               return (
