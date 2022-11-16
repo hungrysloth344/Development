@@ -1,23 +1,28 @@
 import "./App.css";
 import data from "./assets/animals-data.json";
-import DisplayList from "./components/DisplayList";
+import DisplayItem from "./components/DisplayItem";
 import { useState } from "react";
-import FilteredList from "./FilteredList";
-import FavoritesList from "./FavoritesList";
+import FilteredList from "./components/FilteredList";
 
 function App() {
   const [total, setTotal] = useState(0);
   const [myData, setMyData] = useState(data);
   const [myFavorites, setMyFavorites] = useState([]);
-  const [cart, setCart] = useState(new Array(data.length).fill(0));
+
+  /** Resets the favorites */
+  const handleChange = () => {
+    setMyFavorites([]);
+    setTotal(0);
+  };
 
   return (
     <div className="App">
-      <strong className="main">Cool Animals</strong>
-      <div className="App-Container">
-        <div className="BakeryItem-Container">
+      <strong className="Main">Cool Animals</strong>
+      <div className="AppContainer">
+        <div className="AnimalItemContainer">
+          {/** Maps the data in the json file to display each animal and passes in associated props */}
           {myData.map((item, index) => (
-            <DisplayList
+            <DisplayItem
               item={item}
               index={index}
               total={total}
@@ -25,43 +30,37 @@ function App() {
               key={index}
               myFavorites={myFavorites}
               setMyFavorites={setMyFavorites}
-              setCart={setCart}
             />
           ))}
         </div>
-        <div className="filters-card">
+        <div className="FiltersCard">
+          {/** Passes in associated props to FilteredList */}
           <div>
-            <FilteredList
-              data={data}
-              myData={myData}
-              setData={setMyData}
-              myFavorites={myFavorites}
-              setMyFavorites={setMyFavorites}
-            />
+            <FilteredList data={data} myData={myData} setData={setMyData} />
           </div>
-
-          <p>Favorites Max Length: {Math.round(total * 100) / 100}</p>
-
-          {/* <div className="filters-card">
-            <div>My Favorites</div>
-            <div>
-              <FavoritesList
-                data={data}
-                myData={myData}
-                setData={setMyData}
-                myFavorites={myFavorites}
-                setMyFavorites={setMyFavorites}
-                total={total}
-                setTotal={setTotal}
-              />
-            </div>
-          </div> */}
-
-          {cart.map((key, idx) => {
-            if (key > 0) {
-              return <div key={idx}>{data[idx].name}</div>;
-            }
-          })}
+          {/** Allows users to clear their favorites and resets myFavorites and the total max length */}
+          <button className="Clear" onClick={handleChange}>
+            Clear Favorites
+          </button>
+          <h3>Favorites Max Length: {Math.round(total * 100) / 100}</h3>
+          {/** Maps the items in myFavorites to display each animal added to favorites and passes in associated props */}
+          {myFavorites.length === 0 ? (
+            <h3>No favorites!</h3>
+          ) : (
+            myFavorites.map((item, index) => {
+              return (
+                <DisplayItem
+                  key={index}
+                  index={index}
+                  item={item}
+                  total={total}
+                  setMyFavorites={setMyFavorites}
+                  setTotal={setTotal}
+                  myFavorites={myFavorites}
+                />
+              );
+            })
+          )}
         </div>
       </div>
     </div>

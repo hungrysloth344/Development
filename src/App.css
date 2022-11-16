@@ -2,56 +2,34 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-
 }
 
-.App-Container {
+.AppContainer {
   display: flex;
   flex-direction: row;
-
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.AnimalItem {
+  justify-content: space-between;
   align-items: center;
+}
+
+.AnimalItemContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 5rem;
+  padding-left: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
-.BakeryItem img {
+.AnimalItem img {
   width: 15rem;
   height: 13rem;
 }
 
-.BakeryTextContainer {
+.AnimalTextContainer {
   height: 275px;
   width: 15rem;
   background-color: rgb(238, 202, 202);
@@ -62,28 +40,46 @@
   padding-bottom: 1rem;
 }
 
-.BakeryItem {
-  justify-content: space-between;
-  align-items: center;
+.Clear {
+  background-color: rgba(228, 128, 28, 0.651);
+  padding: .5rem;
+  border-radius: 1rem;
+  font-size: x-large;
+  width: 15rem;
+  margin-top: 3rem;
 }
 
-.BakeryItem-Container {
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5rem;
-  padding-left: 2rem;
-}
-
-.favorites {
+.Favorites {
   background-color: rgba(160, 240, 200, 0.651);
   padding: .5rem;
   border-radius: 1rem;
 }
 
-.notfavorites {
+.FiltersCard {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.FilterContainer {
+  background-color: rgba(165, 233, 233, 0.747);
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 1.5rem;
+  border-radius: 1rem;
+}
+
+.Main {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 80px;
+  padding: 5rem;
+  margin-bottom: 5rem;
+  background-color: rgb(191, 166, 213);
+}
+
+.NotFavorites {
   background-color: rgb(250, 213, 167);
   padding: .5rem;
   border-radius: 1rem;
@@ -92,28 +88,4 @@
 .Title {
   font-size: x-large;
   padding: 1rem;
-}
-
-.main {
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  font-size: 42px;
-  padding: 3rem;
-}
-
-.filter-container {
-  background-color: rgba(165, 233, 233, 0.747);
-  padding-top: 1rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
-  padding-bottom: 1.5rem;
-  border-radius: 1rem;
-
-
-}
-
-.filters-card {
-  padding-left: 3rem;
-  padding-right: 3rem;
 }
