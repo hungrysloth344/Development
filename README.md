@@ -2,7 +2,8 @@
 
 ### Link to Deployed Website
 
-(`https://hungrysloth344.github.io/Development`)
+[I'm an inline-style link](https://hungrysloth344.github.io/Development)
+[`https://hungrysloth344.github.io/Development`]
 
 ### Goal and Value of the Application
 
