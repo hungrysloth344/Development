@@ -3,6 +3,7 @@ import data from "./assets/animals-data.json";
 import DisplayItem from "./components/DisplayItem";
 import { useState } from "react";
 import FilteredList from "./components/FilteredList";
+import Favorites from "./components/Favorites";
 
 function App() {
   const [total, setTotal] = useState(0);
@@ -38,29 +39,14 @@ function App() {
           <div>
             <FilteredList data={data} myData={myData} setData={setMyData} />
           </div>
-          {/** Allows users to clear their favorites and resets myFavorites and the total max length */}
-          <button className="Clear" onClick={handleChange}>
-            Clear Favorites
-          </button>
-          <h3>Favorites Max Length: {Math.round(total * 100) / 100}</h3>
-          {/** Maps the items in myFavorites to display each animal added to favorites and passes in associated props */}
-          {myFavorites.length === 0 ? (
-            <h3>No favorites added yet!</h3>
-          ) : (
-            myFavorites.map((item, index) => {
-              return (
-                <DisplayItem
-                  key={index}
-                  index={index}
-                  item={item}
-                  total={total}
-                  setMyFavorites={setMyFavorites}
-                  setTotal={setTotal}
-                  myFavorites={myFavorites}
-                />
-              );
-            })
-          )}
+          {/** Passes in associated props to Favorites */}
+          <Favorites
+            total={total}
+            myFavorites={myFavorites}
+            setMyFavorites={setMyFavorites}
+            setTotal={setTotal}
+            handleChange={handleChange}
+          />
         </div>
       </div>
     </div>

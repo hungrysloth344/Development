@@ -5,7 +5,6 @@ export default function FilteredList(props) {
   const [sortState, setSortState] = useState(0);
   const [activeTimeFilterState, setActiveTimeFilterState] = useState(0);
   const [animalTypeFilterState, setAnimalTypeFilterState] = useState(0);
-  const [checked, setChecked] = React.useState(true);
 
   /** Does the actual sorting and filtering */
   useEffect(() => {
@@ -80,7 +79,7 @@ export default function FilteredList(props) {
         <input
           type="radio"
           name="sorting"
-          defaultChecked={checked}
+          defaultChecked="true"
           onChange={() => handleTheSort(3)}
         />
         <label>None</label>
@@ -92,7 +91,7 @@ export default function FilteredList(props) {
         <input
           type="radio"
           name="activeTimeFilter"
-          defaultChecked={checked}
+          defaultChecked="true"
           onChange={() => handleTheActiveTimeFilter(0)}
         />
         <label>All</label>
@@ -121,7 +120,7 @@ export default function FilteredList(props) {
         <input
           type="radio"
           name="animalTypeFilter"
-          defaultChecked={checked}
+          defaultChecked="true"
           onChange={() => handleTheAnimalTypeFilter(0)}
         />
         <label>All</label>
