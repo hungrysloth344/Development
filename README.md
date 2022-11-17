@@ -20,8 +20,22 @@ The value to the user is the ability to explore and learn about cool animals and
 
 ### Usability Principles Considered
 
+Usability principles that were considered included having user control and freedom, the third heuristic of the 10 usability heuristics, by including a "Remove From Favorites" button as well as the "Clear Favorites" button that clears the whole favorites list so that the user has the ability to "undo" an action (in this case, adding to favorites) if neeeded. There is also consistency and standards throughout the page (the sixth heuristic) where all the buttons are rounded the same amount and the add to and remove from favorite buttons are all the same size. Additionally, I stuck to a few fonts that help define the hierachical structure of the page. Following the ninth heuristic, I also maintained an aesthetic and minimalist design so that it is easy and efficient to navigate while not being cluttered with irrelevant information. I also put the filtering and sorting options and the favorites list on the top right side of the page so the user does not have to scroll all the way down to view the filtering and sorting options and interact with their favorites.
+
 ### Organization of Components
+
+Starting from the App, the data from the animals-data.json file is being passed in by creating a state variable. I also store an array of favorites to keep track of what is favorited as well as the total for the aggregation of maximum length of each animal that is favorited. I also map the data in the json file to DisplayItem in App, where I pass in neccessary props to display each animal card. I aso pass in associated props to FilteredList which handles the actual filtering and sorting functionality and deal with the favorites and its functionality in App. I do so by mapping the array of favorites to DisplayItem so the animals favorited show up in the favorites while also doing the aggregation of the maximum length and the clearing of the favorites list.
+
+In the DisplayItem component, I use props that are passed in from App to build the animal cards for each data entry in the json. It also takes care of the favorites buttons and the actual clicking and handling of them. I also set the favorites here which is used in App to actually display the favorited animals.
+
+In the FilteredList component, I take care of the actual filtering and sorting functionality. Radio buttons are created and I use useEffect to make sure when a filter and/or sort is selected, that it is handled accordingly.
+
+Lastly, I take care of the CSS and styling of my components in App.css.
 
 ### How Data is Passed Down Through Components
 
+The data is passed down through components from App to the other components (DisplayItem and FilteredList). In App, I create a state variable that passes in the data from the animals-data json file. In FilteredList, I set the data to display a list of animals that meet the filter and/or sort that is selected by passing in setMyData and myData as props. I also map myData to DisplayItem so each animal and its associated information are being displayed accordingly.
+
 ### How the User Triggers State Changes
+
+The user triggers state changes from the components. That is, in DisplayItem, the state is updated when the user clicks "Add to Favorites" or "Remove From Favorites" using setters so the favorites is being updated as well as the aggregate total of the maximum length of the favorite animals. Also, FilteredList handles the change in filter and sort states based on which one is selected by the user. I also take care of the clearing of the favorites by setting the state of the favorites array and the total to an empty array and 0 respectively (essentially how the state variable started).
